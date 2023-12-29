@@ -52,7 +52,6 @@ python -m pip install --upgrade "jax[cuda]==0.4.2" -f https://storage.googleapis
 
 # diffplanner
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y
-python -m pip install "mmcv-full>=1.4.2,<=1.9.0" -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.12.1/index.html
 conda install -c bottler nvidiacub -y
 conda install -c fvcore -c iopath -c conda-forge fvcore iopath -y
 conda install pytorch3d -c pytorch3d -y
