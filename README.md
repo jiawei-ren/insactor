@@ -64,13 +64,9 @@ export PYTHONPATH=$PYTHONPATH:$(pwd)
 
 download models
 ```sh
-cd pretrained_models
-
+mkdir pretrained_models && cd pretrained_models
 gdown --fuzzy https://drive.google.com/file/d/1qdglrZJa5ago2nkSWc5Nu52kvLaS_dTg/view?usp=drive_link # Human-ML skills 0.001
-gdown --fuzzy https://drive.google.com/file/d/10gFEWUdZtMIA-6yhd_gZXbYm9snMZ63m/view?usp=drive_link # Human-ML skills 0.001
-
 gdown --fuzzy https://drive.google.com/file/d/1Wi33YZWR8K6IuWZdcXdV2mqcivcyObIU/view?usp=drive_link # Human-ML planner
-gdown --fuzzy https://drive.google.com/file/d/10WrKJ4v1u6DwCYb8KT9s2aP3n2BBn9ST/view?usp=drive_link # KIT-ML planner
 cd ..
 ```
 
@@ -107,13 +103,15 @@ Difference from the paper results:
 - We improved the low-level trakcer training by adding a gradient truncation.
 - We fixed the contrastive model for humanml-3d.
 
-More controllers
+More models
 ```sh
 cd pretrained_models
+gdown --fuzzy https://drive.google.com/file/d/10gFEWUdZtMIA-6yhd_gZXbYm9snMZ63m/view?usp=drive_link # KIT-ML skills 0.001
 gdown --fuzzy https://drive.google.com/file/d/1oyT5DE5ItZb1KNSV0lW85cLk9w4alGPV/view?usp=drive_link # Human-ML skills 0.0
 gdown --fuzzy https://drive.google.com/file/d/1fvW3RtFU8sOGj2rLZTT7gGSOzLCvNkUW/view?usp=drive_link # KIT-ML skills 0.0
 gdown --fuzzy https://drive.google.com/file/d/17ut3gymJpDrPt4nsIhPcug0A0HevqGkE/view?usp=drive_link # Human-ML skills 0.01
 gdown --fuzzy https://drive.google.com/file/d/1Ijosu_4W2eIg72kK2IuGaR0wbEhxw6CU/view?usp=drive_link # KIT-ML skills 0.01
+gdown --fuzzy https://drive.google.com/file/d/10WrKJ4v1u6DwCYb8KT9s2aP3n2BBn9ST/view?usp=drive_link # KIT-ML planner
 cd ..
 ```
 

@@ -7,8 +7,8 @@ from mmcv.runner import load_checkpoint
 
 config_path = "configs/planner/human.py"
 ckpt_path = "pretrained_models/planner_humanml.pth"
-mean_path = "data/datasets/human_pml3d/mean.npy"
-std_path = "data/datasets/human_pml3d/std.npy"
+mean_path = "asset/normalization_params/human_pml3d/mean.npy"
+std_path = "asset/normalization_params/human_pml3d/std.npy"
 x_dim=247
 
 
