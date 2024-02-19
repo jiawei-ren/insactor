@@ -25,8 +25,7 @@ def get_motion_model(name, ckpt_path):
         model = build_submodule(dict(
             type='ACTOREncoder',
             max_seq_len=196,
-            # input_feats=133,
-            input_feats=247,
+            input_feats=133,
             latent_dim=512,
             num_layers=4,
             ff_size=2048,
