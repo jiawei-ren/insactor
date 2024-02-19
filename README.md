@@ -114,6 +114,13 @@ gdown --fuzzy https://drive.google.com/file/d/10WrKJ4v1u6DwCYb8KT9s2aP3n2BBn9ST/
 cd ..
 ```
 
+## Visualize Evaluation Results
+The evaluation script will save diffusion plans at `planned_traj.npy` and simulated motion in `simulated_traj.npy`.
+```sh
+streamlit run visualize.py
+```
+Then input the trajectory file path (e.g., `planned_traj.npy`), or drag and drop the trajectory file. 
+
 ## Training Low-level Controllers
 
 ```sh
@@ -129,6 +136,7 @@ python mimic.py --config configs/controller/human_0.01.yaml
 python -u tools/train.py configs/planner/kit.py --work-dir=planner_kit  # kit
 python -u tools/train.py configs/planner/human.py --work-dir=planner_human  # humanml
 ```
+
 ## Citation
 
 ```

@@ -181,7 +181,7 @@ def main():
             pred_motion = torch.stack([outputs[j]['pred_motion'] for j in range(i, i+num_env)], 0)
             pred_motion = pred_motion.detach().cpu().numpy()
             pred_motion = pred_motion * std + mean 
-            # np.save('./planned_traj.npy', pred_motion.transpose(1,0,2))
+            np.save('./planned_traj.npy', pred_motion.transpose(1,0,2))
             pred_motion = add_scene_to_traj(pred_motion, None, scene='vis')
             pred_motion_phys = execute_actions(pred_motion, num_env, perturb=args.perturb == 'true')
             pred_motion_phys = np.array(pred_motion_phys)
