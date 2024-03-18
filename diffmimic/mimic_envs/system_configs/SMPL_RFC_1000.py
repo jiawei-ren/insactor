@@ -1,5 +1,4 @@
-# cylinder foot and stronger
-_SYSTEM_CONFIG_SMPL = """
+_SYSTEM_CONFIG_SMPL_RFC_1000 = """
 bodies {
   name: "pelvis"
   colliders {
@@ -272,48 +271,19 @@ bodies {
 }
 bodies {
   name: "right_foot"
-  # colliders {
-  #   position {
-  #     x: 0.045
-  #     z: -0.0225
-  #   }
-  #   rotation {
-  #   }
-  #   box {
-  #     halfsize {
-  #       x: 0.0885
-  #       y: 0.045
-  #       z: 0.0275
-  #     }
-  #   }
-  # }
-    colliders {
-    position {
-      x: 0.045
-      y: 0.0275
-      z: -0.0225
-    }
-    rotation {
-      y: -90.0
-    }
-    capsule {
-      radius: 0.0275
-      length: 0.177
-    }
-  }
-  
   colliders {
     position {
       x: 0.045
-      y: -0.0275
       z: -0.0225
     }
     rotation {
-      y: -90.0
     }
-    capsule {
-      radius: 0.0275
-      length: 0.177
+    box {
+      halfsize {
+        x: 0.0885
+        y: 0.045
+        z: 0.0275
+      }
     }
   }
   inertia {
@@ -365,53 +335,21 @@ bodies {
 }
 bodies {
   name: "left_foot"
-  # colliders {
-  #   position {
-  #     x: 0.045
-  #     z: -0.0225
-  #   }
-  #   rotation {
-  #   }
-  #   box {
-  #     halfsize {
-  #       x: 0.0885
-  #       y: 0.045
-  #       z: 0.0275
-  #     }
-  #   }
-  # }
-  
-    colliders {
-    position {
-      x: 0.045
-      y: 0.0275
-      z: -0.0225
-    }
-    rotation {
-      y: -90.0
-    }
-    capsule {
-      radius: 0.0275
-      length: 0.177
-    }
-  }
-  
   colliders {
     position {
       x: 0.045
-      y: -0.0275
       z: -0.0225
     }
     rotation {
-      y: -90.0
     }
-    capsule {
-      radius: 0.0275
-      length: 0.177
+    box {
+      halfsize {
+        x: 0.0885
+        y: 0.045
+        z: 0.0275
+      }
     }
   }
-  
-  
   inertia {
     x: 1.0
     y: 1.0
@@ -506,7 +444,7 @@ joints {
     min: -180.0
     max: 180.0
   }
-  angular_damping: 10.0
+  angular_damping: 30.0
 }
 joints {
   name: "right_collar"
@@ -941,6 +879,12 @@ actuators {
   angle {
   }
 }
+forces {
+    name: "external_force"
+    body: "pelvis"
+    strength: 1000.0
+    thruster {}
+}
 collide_include {
   first: "floor"
   second: "pelvis"
@@ -1017,39 +961,11 @@ collide_include {
   first: "right_thigh"
   second: "left_thigh"
 }
-# collide_include {
-#   first: "right_thigh"
-#   second: "left_shin"
-# }
-# collide_include {
-#   first: "right_thigh"
-#   second: "left_foot"
-# }
-# collide_include {
-#   first: "right_shin"
-#   second: "left_thigh"
-# }
 collide_include {
   first: "right_shin"
   second: "left_shin"
 }
-# collide_include {
-#   first: "right_shin"
-#   second: "left_foot"
-# }
-# collide_include {
-#   first: "right_foot"
-#   second: "left_thigh"
-# }
-# collide_include {
-#   first: "right_foot"
-#   second: "left_shin"
-# }
-# collide_include {
-#   first: "right_foot"
-#   second: "left_foot"
-# }
-friction: 1.5
+friction: 1.0
 gravity {
   z: -9.81
 }

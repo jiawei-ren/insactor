@@ -137,6 +137,28 @@ python -u tools/train.py configs/planner/kit.py --work-dir=planner_kit  # kit
 python -u tools/train.py configs/planner/human.py --work-dir=planner_human  # humanml
 ```
 
+## Residual Force Control
+### RFC with strength 100
+Download pretrained policy:
+```sh
+cd pretrained_models && gdown --fuzzy https://drive.google.com/file/d/1B4FntBB3lFWRgW6uWzZRQWGu0ddPSa2p/view?usp=drive_link && cd ..
+```
+Then, in (tools/demo_utils/rollout.py)[tools/demo_utils/rollout.py]:
+- replace `system_config='smpl` with `system_config='smpl_rfc`
+- replace `param_path = 'pretrained_models/skill_human_0.001.pkl'` with `param_path = 'pretrained_models/skill_human_rfc_100.pkl'`
+
+### RFC with strength 1000
+Download pretrained policy:
+```sh
+cd pretrained_models && gdown --fuzzy https://drive.google.com/file/d/1XYfYfFL6sODSlqCpwhddxrh7jX87mkKs/view?usp=drive_link && cd ..
+```
+Then, in (tools/demo_utils/rollout.py)[tools/demo_utils/rollout.py]:
+- replace `system_config='smpl` with `system_config='smpl_rfc_1000`
+- replace `param_path = 'pretrained_models/skill_human_0.001.pkl'` with `param_path = 'pretrained_models/skill_human_rfc_1000.pkl'`
+
+
+
+
 ## Citation
 
 ```

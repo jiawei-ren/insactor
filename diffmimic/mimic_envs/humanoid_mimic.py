@@ -138,17 +138,6 @@ class HumanoidMimic(env.Env):
         ref_state = jp.tree_map(lambda x: (mask @ x.transpose(1, 0, 2)), reference_qp)
         return ref_state
 
-    # def _mask_state(self, state) -> brax.QP:
-    #     _, zero = jp.zeros(2)
-    #     mask = jp.where(state.metrics['step_index'] == jp.arange(0, state.info['mask'].shape[0]), jp.float32(1), jp.float32(0))
-    #     state_mask = mask@state.info['mask']
-    #     reward = jp.where(state_mask == 0, zero, state.reward)
-    #     pose_error = jp.where(state_mask == 0, zero, state.metrics['pose_error'])
-    #     state = state.replace(reward=reward)
-    #     state.metrics.update(
-    #         pose_error=pose_error,
-    #     )
-    #     return state
 
     def _mask_state(self, state) -> brax.QP:
         _, zero = jp.zeros(2)

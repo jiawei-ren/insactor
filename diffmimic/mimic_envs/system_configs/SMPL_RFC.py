@@ -1,4 +1,4 @@
-_SYSTEM_CONFIG_SMPL_OLD = """
+_SYSTEM_CONFIG_SMPL_RFC = """
 bodies {
   name: "pelvis"
   colliders {
@@ -444,7 +444,7 @@ joints {
     min: -180.0
     max: 180.0
   }
-  angular_damping: 10.0
+  angular_damping: 30.0
 }
 joints {
   name: "right_collar"
@@ -763,42 +763,42 @@ joints {
 actuators {
   name: "spine1"
   joint: "spine1"
-  strength: 150.0
+  strength: 200.0
   angle {
   }
 }
 actuators {
   name: "spine3"
   joint: "spine3"
-  strength: 150.0
+  strength: 200.0
   angle {
   }
 }
 actuators {
   name: "neck"
   joint: "neck"
-  strength: 40.0
+  strength: 50.0
   angle {
   }
 }
 actuators {
   name: "right_collar"
   joint: "right_collar"
-  strength: 75.0
+  strength: 100.0
   angle {
   }
 }
 actuators {
   name: "right_shoulder"
   joint: "right_shoulder"
-  strength: 75.0
+  strength: 100.0
   angle {
   }
 }
 actuators {
   name: "right_elbow"
   joint: "right_elbow"
-  strength: 50.0
+  strength: 70.0
   angle {
   }
 }
@@ -812,21 +812,21 @@ actuators {
 actuators {
   name: "left_collar"
   joint: "left_collar"
-  strength: 75.0
+  strength: 100.0
   angle {
   }
 }
 actuators {
   name: "left_shoulder"
   joint: "left_shoulder"
-  strength: 75.0
+  strength: 100.0
   angle {
   }
 }
 actuators {
   name: "left_elbow"
   joint: "left_elbow"
-  strength: 50.0
+  strength: 70.0
   angle {
   }
 }
@@ -840,44 +840,50 @@ actuators {
 actuators {
   name: "right_hip"
   joint: "right_hip"
-  strength: 150.0
+  strength: 200.0
   angle {
   }
 }
 actuators {
   name: "right_knee"
   joint: "right_knee"
-  strength: 120.0
+  strength: 150.0
   angle {
   }
 }
 actuators {
   name: "right_ankle"
   joint: "right_ankle"
-  strength: 70.0
+  strength: 90.0
   angle {
   }
 }
 actuators {
   name: "left_hip"
   joint: "left_hip"
-  strength: 150.0
+  strength: 200.0
   angle {
   }
 }
 actuators {
   name: "left_knee"
   joint: "left_knee"
-  strength: 120.0
+  strength: 150.0
   angle {
   }
 }
 actuators {
   name: "left_ankle"
   joint: "left_ankle"
-  strength: 70.0
+  strength: 90.0
   angle {
   }
+}
+forces {
+    name: "external_force"
+    body: "pelvis"
+    strength: 100.0
+    thruster {}
 }
 collide_include {
   first: "floor"
@@ -950,6 +956,14 @@ collide_include {
 collide_include {
   first: "floor"
   second: "left_foot"
+}
+collide_include {
+  first: "right_thigh"
+  second: "left_thigh"
+}
+collide_include {
+  first: "right_shin"
+  second: "left_shin"
 }
 friction: 1.0
 gravity {
