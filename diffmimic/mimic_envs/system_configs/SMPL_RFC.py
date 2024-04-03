@@ -880,10 +880,16 @@ actuators {
   }
 }
 forces {
-    name: "external_force"
+    name: "external_force_thruster"
     body: "pelvis"
     strength: 100.0
     thruster {}
+}
+forces {
+    name: "external_force_twister"
+    body: "pelvis"
+    strength: 100.0
+    twister {}
 }
 collide_include {
   first: "floor"

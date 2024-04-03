@@ -138,23 +138,46 @@ python -u tools/train.py configs/planner/human.py --work-dir=planner_human  # hu
 ```
 
 ## Residual Force Control
-### RFC with strength 100
 Download pretrained policy:
 ```sh
-cd pretrained_models && gdown --fuzzy https://drive.google.com/file/d/1B4FntBB3lFWRgW6uWzZRQWGu0ddPSa2p/view?usp=drive_link && cd ..
+cd pretrained_models &&
+gdown --fuzzy https://drive.google.com/file/d/1Bit-Bfiyv8HmlXeoessbPPIMcVc9IgHN/view?usp=drive_link && 
+gdown --fuzzy https://drive.google.com/file/d/1a1QnHAxVt0MY9hVfiI9Tq4W7VDP-NxKi/view?usp=drive_link && 
+cd ..
 ```
-Then, in [tools/demo_utils/rollout.py](tools/demo_utils/rollout.py):
-- replace `system_config='smpl` with `system_config='smpl_rfc`
-- replace `param_path = 'pretrained_models/skill_human_0.001.pkl'` with `param_path = 'pretrained_models/skill_human_rfc_100.pkl'`
+### Demo
+#### RFC with strength 100
+```sh
+streamlit run tools/demo.py --server.port 8501
+```
 
-### RFC with strength 1000
-Download pretrained policy:
+#### RFC with strength 200
+In [tools/demo_utils/rollout.py](tools/demo_utils/rollout.py):
+- replace `system_config='smpl_rfc` with `system_config='smpl_rfc_200`
+- set `param_path` with `pretrained_models/skill_human_rfc_200_0.0.pkl`
+
+Then
 ```sh
-cd pretrained_models && gdown --fuzzy https://drive.google.com/file/d/1XYfYfFL6sODSlqCpwhddxrh7jX87mkKs/view?usp=drive_link && cd ..
+streamlit run tools/demo.py --server.port 8501
 ```
-Then, in [tools/demo_utils/rollout.py](tools/demo_utils/rollout.py):
-- replace `system_config='smpl` with `system_config='smpl_rfc_1000`
-- replace `param_path = 'pretrained_models/skill_human_0.001.pkl'` with `param_path = 'pretrained_models/skill_human_rfc_1000.pkl'`
+
+
+### Evaluation
+
+#### RFC with strength 100
+```sh
+# Humanml
+export CONTROLLER_PARAM_PATH="pretrained_models/skill_human_rfc_100_0.0.pkl"
+python -u tools/test.py configs/planner/human.py --work-dir=work_dirs/eval --physmode=normal pretrained_models/planner_humanml.pth
+```
+
+#### RFC with strength 200
+In [simulate/rollout.py](simulated/rollout.py), replace `system_config='smpl_rfc` with `system_config='smpl_rfc_200`. Then:
+```sh
+# Humanml
+export CONTROLLER_PARAM_PATH="pretrained_models/skill_human_rfc_200_0.0.pkl"
+python -u tools/test.py configs/planner/human.py --work-dir=work_dirs/eval --physmode=normal pretrained_models/planner_humanml.pth
+```
 
 
 

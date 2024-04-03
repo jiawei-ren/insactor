@@ -30,12 +30,12 @@ from simulate.scene import add_scene_to_traj, remove_scene_from_traj
   
 env_global = envs.get_environment(
     env_name="humanoid_mimic_hit",
-    system_config='smpl',
+    system_config='smpl_rfc',
 )
 
 env_global_perturb = envs.get_environment(
     env_name="humanoid_mimic_hit",
-    system_config='smpl',
+    system_config='smpl_rfc',
     perturb=True
 )
 

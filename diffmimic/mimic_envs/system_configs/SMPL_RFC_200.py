@@ -1,4 +1,4 @@
-_SYSTEM_CONFIG_SMPL_RFC_1000 = """
+_SYSTEM_CONFIG_SMPL_RFC_200 = """
 bodies {
   name: "pelvis"
   colliders {
@@ -880,10 +880,16 @@ actuators {
   }
 }
 forces {
-    name: "external_force"
+    name: "external_force_thruster"
     body: "pelvis"
-    strength: 1000.0
+    strength: 200.0
     thruster {}
+}
+forces {
+    name: "external_force_twister"
+    body: "pelvis"
+    strength: 200.0
+    twister {}
 }
 collide_include {
   first: "floor"

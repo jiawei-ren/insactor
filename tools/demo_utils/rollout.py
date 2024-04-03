@@ -28,19 +28,20 @@ envs.register_environment('humanoid_mimic_hit', HumanoidMimicHit)
   
 env_global = envs.get_environment(
     env_name="humanoid_mimic_hit",
-    system_config='smpl',
+    system_config='smpl_rfc',
 )
 
 env_global_perturb = envs.get_environment(
     env_name="humanoid_mimic_hit",
-    system_config='smpl',
+    system_config='smpl_rfc',
     perturb=True
 )
 
 
 
 # param_path = 'pretrained_models/skill_human_0.0.pkl'
-param_path = 'pretrained_models/skill_human_0.001.pkl'
+# param_path = 'pretrained_models/skill_human_0.001.pkl'
+param_path = 'pretrained_models/skill_human_rfc_100_0.0.pkl'
 params_global = model.load_params(param_path)
 latent_dim = 64
 
